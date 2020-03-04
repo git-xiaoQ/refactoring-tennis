@@ -4,8 +4,6 @@ import cn.xpbootcamp.tennis.TennisGame;
 import cn.xpbootcamp.tennis.game1.Player;
 
 public class TennisGame2 implements TennisGame {
-//    public int P1point = 0;
-//    public int P2point = 0;
 
     public String P1res = "";
     public String P2res = "";
@@ -103,7 +101,6 @@ public class TennisGame2 implements TennisGame {
         for (int i = 0; i < number; i++) {
             player.addScore(1);
         }
-
     }
 
     public void wonPoint(String player) {

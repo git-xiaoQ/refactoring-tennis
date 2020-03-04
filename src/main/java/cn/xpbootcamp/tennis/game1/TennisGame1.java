@@ -27,12 +27,16 @@ public class TennisGame1 implements TennisGame {
         if (isScorePointEqual(scoreOfPlayer1, scoreOfPlayer2)) {
             score = getScoreWhenPointEquel(scoreOfPlayer1);
 
-        } else if (scoreOfPlayer1 >= 4 || scoreOfPlayer2 >= 4) {
+        } else if (isWin(scoreOfPlayer1, scoreOfPlayer2)) {
             score = getScoreWhenOnePlayerIsWin(scoreOfPlayer1, scoreOfPlayer2);
         } else {
             score = getScoreWhenPointIsLessThanFour(score, scoreOfPlayer1, scoreOfPlayer2);
         }
         return score;
+    }
+
+    private boolean isWin(int scoreOfPlayer1, int scoreOfPlayer2) {
+        return scoreOfPlayer1 >= 4 || scoreOfPlayer2 >= 4;
     }
 
     private boolean isScorePointEqual(int scoreOfPlayer1, int scoreOfPlayer2) {
