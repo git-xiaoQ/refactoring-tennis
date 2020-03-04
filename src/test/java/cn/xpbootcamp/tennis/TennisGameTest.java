@@ -74,7 +74,9 @@ class TennisGameTest {
     @ParameterizedTest
     @MethodSource("getAllScores")
     public void checkAllScoresTennisGame2(List<Object> params) {
-        TennisGame2 game = new TennisGame2("player1", "player2");
+        Player player1 = new Player("player1");
+        Player player2 = new Player("player2");
+        TennisGame2 game = new TennisGame2(player1, player2);
         checkAllScores(params, game);
     }
 

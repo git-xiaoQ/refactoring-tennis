@@ -21,24 +21,28 @@ public class TennisGame1 implements TennisGame {
 
     public String getScore() {
         String score = "";
-        int scoreOfPlayer1 = player1.getScore();
-        int scoreOfPlayer2 = player2.getScore();
+        int scoreOfPlayer1 = player1.getPoint();
+        int scoreOfPlayer2 = player2.getPoint();
 
-        if (scoreOfPlayer1 == scoreOfPlayer2) {
-            score = getScoreWhenScoreNumberEquel(scoreOfPlayer1);
+        if (isScorePointEqual(scoreOfPlayer1, scoreOfPlayer2)) {
+            score = getScoreWhenPointEquel(scoreOfPlayer1);
 
         } else if (scoreOfPlayer1 >= 4 || scoreOfPlayer2 >= 4) {
             score = getScoreWhenOnePlayerIsWin(scoreOfPlayer1, scoreOfPlayer2);
         } else {
-            score = getScoreWhenScoreNumberIsLessThanFour(score, scoreOfPlayer1, scoreOfPlayer2);
+            score = getScoreWhenPointIsLessThanFour(score, scoreOfPlayer1, scoreOfPlayer2);
         }
         return score;
     }
 
-    private String getScoreWhenScoreNumberIsLessThanFour(String score, int scoreOfPlayer1, int scoreOfPlayer2) {
+    private boolean isScorePointEqual(int scoreOfPlayer1, int scoreOfPlayer2) {
+        return scoreOfPlayer1 == scoreOfPlayer2;
+    }
+
+    private String getScoreWhenPointIsLessThanFour(String score, int scoreOfPlayer1, int scoreOfPlayer2) {
         int tempScore;
         for (int i = 1; i < 3; i++) {
-            if (i == 1) tempScore = scoreOfPlayer1;
+            if (isScorePointEqual(i, 1)) tempScore = scoreOfPlayer1;
             else {
                 score += "-";
                 tempScore = scoreOfPlayer2;
@@ -64,14 +68,14 @@ public class TennisGame1 implements TennisGame {
     private String getScoreWhenOnePlayerIsWin(int scoreOfPlayer1, int scoreOfPlayer2) {
         String score;
         int minusResult = scoreOfPlayer1 - scoreOfPlayer2;
-        if (minusResult == 1) score = "Advantage player1";
-        else if (minusResult == -1) score = "Advantage player2";
+        if (isScorePointEqual(minusResult, 1)) score = "Advantage player1";
+        else if (isScorePointEqual(minusResult, -1)) score = "Advantage player2";
         else if (minusResult >= 2) score = "Win for player1";
         else score = "Win for player2";
         return score;
     }
 
-    public String getScoreWhenScoreNumberEquel(int scoreNumber){
+    public String getScoreWhenPointEquel(int scoreNumber){
         String score;
         switch (scoreNumber) {
             case 0:

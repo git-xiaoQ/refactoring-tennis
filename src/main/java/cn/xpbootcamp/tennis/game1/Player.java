@@ -1,25 +1,23 @@
 package cn.xpbootcamp.tennis.game1;
 
-import com.sun.javafx.logging.PulseLogger;
-
 public class Player {
-    private int score = 0;
+    private int point = 0;
     private String name;
 
     public Player(String name) {
         this.name = name;
     }
 
-    public int getScore() {
-        return score;
+    public int getPoint() {
+        return point;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void setPoint(int point) {
+        this.point = point;
     }
 
     public void addScore(int score) {
-        this.score += score;
+        this.point += score;
     }
 
     public String getName() {
