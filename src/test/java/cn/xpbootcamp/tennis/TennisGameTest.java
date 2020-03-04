@@ -1,6 +1,7 @@
 package cn.xpbootcamp.tennis;
 
 
+import cn.xpbootcamp.tennis.game1.Player;
 import cn.xpbootcamp.tennis.game1.TennisGame1;
 import cn.xpbootcamp.tennis.game2.TennisGame2;
 import cn.xpbootcamp.tennis.game3.TennisGame3;
@@ -63,7 +64,10 @@ class TennisGameTest {
     @ParameterizedTest
     @MethodSource("getAllScores")
     public void checkAllScoresTennisGame1(List<Object> params) {
-        TennisGame1 game = new TennisGame1("player1", "player2");
+        Player player1 = new Player("player1");
+        Player player2 = new Player("player2");
+
+        TennisGame1 game = new TennisGame1(player1,player2);
         checkAllScores(params, game);
     }
 
